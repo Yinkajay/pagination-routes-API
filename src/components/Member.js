@@ -3,12 +3,11 @@ import styles from './Member.module.css'
 
 const Member = (props) => {
     return (
-        <div className='member-card'>
-            <h1>Hi</h1>
-            <img src={props.src} />
-            <h2>{props.firstName} {props.lastName}</h2>
-            <h3>{props.country}</h3>
-            <h3>{props.email}</h3>
+        <div className={styles['member-card']}>
+            <img src={props.src} className={styles['member-picture']} />
+            <h2 className={styles['membername']} > Name  -  {props.firstName} {props.lastName}</h2>
+            <h3 className={styles['member-country']}>Country of Origin    -  {props.country} </h3>
+            <h3 className={styles['member-email']}>E-mail  -  {props.email}</h3>
         </div>
     )
 }
@@ -24,3 +23,4 @@ country={member.country}
 email={member.email}
 src={member.thumbnail}
 /> */}
+// members.slice((page - 1) * membersPerPage, page * membersPerPage)

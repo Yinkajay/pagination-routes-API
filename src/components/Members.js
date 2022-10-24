@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Member from './Member';
 
 const Members = () => {
@@ -9,8 +9,8 @@ const Members = () => {
 
 
 
-  const getMembers = () => {
-    fetch('https://randomuser.me/api/')
+  const getMembers = useCallback(() => {
+    fetch('https://randomuser.me/api/?results=5')
       .then((response) => {
         return response.json();
       })
@@ -30,11 +30,11 @@ const Members = () => {
         setMembers(transformedMembers)
         setIsLoading(false)
       })
-  }
+  })
 
-  // useEffect(() => {
-  //   getMembers()
-  // }, [])
+  useEffect(() => {
+    getMembers()
+  }, [])
 
   // const foundMembers = (props) => {
   //   return (
@@ -57,14 +57,20 @@ const Members = () => {
   return (
     <>
       <h1>These are our members</h1>
-          {isLoading && <button onClick={getMembers}>Click me please</button>}
       <div>
-        {!isLoading && <ul>
-          {members.map(member => {
-            <h1>{member.firstName}</h1>
-          })}
-        </ul>}
-        {/* {!isLoading && foundMembers} */}
+        {!isLoading && <div style={{ border: '2px solid blue' }}>
+          {members.map(member => (
+            <Member 
+            key = {member.cell}
+            src = {member.thumbnail}
+            firstName = {member.firstName}
+            lastName = {member.lastName}
+            country = {member.country}
+            email = {member.email}
+            />
+          ))
+          }
+        </div>}
         {isLoading && 'Loading...'}
       </div>
     </>
