@@ -1,0 +1,31 @@
+.member-card {
+    padding: 1rem;
+    width: 27rem;
+    background-color: var(--dark-green);
+    margin: 10px;
+    border-radius: 30px;
+    color: var(--lavender);
+}
+
+.member-card:hover {
+    transform: scale(0.99);
+    filter: brightness(90%);
+}
+
+.member-picture {
+    width: 100px;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.member-name {
+    font-weight: 500;
+}
+
+.member-country {
+    font-weight: 500;
+}
+
+.member-email {
+    font-weight: 500;
+}

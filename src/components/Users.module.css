@@ -1,0 +1,35 @@
+.member-area{
+        display: flex;
+        flex-wrap: wrap;
+}
+.button-area{
+    /* margin-left: 20px; */
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.button{
+    padding: 8px 20px;
+    margin: 0 1px;
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-green);
+    background-color: var(--lavender);
+    border: 1px solid var(--dark-green);
+}
+.button:hover{
+    color: var(--lavender);
+    background-color: var(--dark-green);
+}
+.button:disabled{
+    background-color: white;
+    color: var(--dark-green);
+    cursor: not-allowed;
+}
+
+.button-prev{
+    margin-right: 10px;
+}
+
+.button-next{
+    margin-left: 10px;
+}

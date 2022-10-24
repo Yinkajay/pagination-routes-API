@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import Member from './Member';
+import Member from './User';
+import styles from './Users.module.css'
 
-const Members = () => {
+const Users = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [page, setPage] = useState(1)
@@ -10,7 +11,7 @@ const Members = () => {
 
 
   const getMembers = useCallback(() => {
-    fetch('https://randomuser.me/api/?results=5')
+    fetch('https://randomuser.me/api/?page=3&results=19&seed=abc')
       .then((response) => {
         return response.json();
       })
@@ -57,24 +58,37 @@ const Members = () => {
   return (
     <>
       <h1>These are our members</h1>
-      <div>
-        {!isLoading && <div style={{ border: '2px solid blue' }}>
-          {members.map(member => (
-            <Member 
-            key = {member.cell}
-            src = {member.thumbnail}
-            firstName = {member.firstName}
-            lastName = {member.lastName}
-            country = {member.country}
-            email = {member.email}
+      {isLoading && 'Loading...'}
+      {!isLoading && <div style={{ border: '2px solid transparent' }}>
+        <div className={styles['member-area']}>
+          {members.slice((page - 1) * membersPerPage, page * membersPerPage).map(member => (
+            <Member
+              key={member.cell}
+              src={member.thumbnail}
+              firstName={member.firstName}
+              lastName={member.lastName}
+              country={member.country}
+              email={member.email}
             />
           ))
           }
-        </div>}
-        {isLoading && 'Loading...'}
+        </div>
+      </div>}
+      <div className={styles['button-area']}>
+        <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
+          Previous
+        </button>
+        {Array.from({ length: Math.ceil(members.length / membersPerPage) }, (value, index) => index + 1).map(
+          (each) => (
+            <button className={styles.button} onClick={() => setPage(each)}>{each}</button>
+          )
+        )}
+        <button className={`${styles.button} ${styles['button-next']} `} onClick={() => setPage((p) => p + 1)} disabled={page >= (members.length / membersPerPage)}>
+          Next
+        </button>
       </div>
     </>
   )
 }
 
-export default Members;
+export default Users;
