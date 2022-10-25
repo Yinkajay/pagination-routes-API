@@ -73,20 +73,21 @@ const Users = () => {
           ))
           }
         </div>
-      </div>}
-      <div className={styles['button-area']}>
-        <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
-          Previous
-        </button>
-        {Array.from({ length: Math.ceil(members.length / membersPerPage) }, (value, index) => index + 1).map(
-          (each) => (
-            <button className={styles.button} onClick={() => setPage(each)}>{each}</button>
-          )
-        )}
-        <button className={`${styles.button} ${styles['button-next']} `} onClick={() => setPage((p) => p + 1)} disabled={page >= (members.length / membersPerPage)}>
-          Next
-        </button>
-      </div>
+      </div>}{ !isLoading &&
+        <div className={styles['button-area']}>
+          <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
+            Previous
+          </button>
+          {Array.from({ length: Math.ceil(members.length / membersPerPage) }, (value, index) => index + 1).map(
+            (each) => (
+              <button className={styles.button} onClick={() => setPage(each)}>{each}</button>
+            )
+          )}
+          <button className={`${styles.button} ${styles['button-next']} `} onClick={() => setPage((p) => p + 1)} disabled={page >= (members.length / membersPerPage)}>
+            Next
+          </button>
+        </div>
+        }
     </>
   )
 }

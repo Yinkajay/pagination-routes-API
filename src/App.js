@@ -5,17 +5,21 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Users from './components/Users';
 import { useState, useEffect } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './components/ErrorFallback';
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        {/* <Route path='/About' element={<AboutUs />} /> */}
-        <Route path='/Users' element={<Users />} />
-      </Routes>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          {/* <Route path='/About' element={<AboutUs />} /> */}
+          <Route path='/Users' element={<Users />} />
+        </Routes>
+      </ErrorBoundary>
     </>
   );
 }
