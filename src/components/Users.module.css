@@ -12,7 +12,7 @@
     padding: 8px 20px;
     margin: 0 1px;
     font-family: 'Inter', sans-serif;
-    color: var(--dark-green);
+    color: black;
     background-color: var(--lavender);
     border: 1px solid var(--dark-green);
 }
