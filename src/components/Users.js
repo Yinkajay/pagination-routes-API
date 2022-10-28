@@ -73,7 +73,7 @@ const Users = () => {
           ))
           }
         </div>
-      </div>}{ !isLoading &&
+      </div>}{!isLoading &&
         <div className={styles['button-area']}>
           <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
             Previous
@@ -87,7 +87,7 @@ const Users = () => {
             Next
           </button>
         </div>
-        }
+      }
     </>
   )
 }
