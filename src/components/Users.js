@@ -11,7 +11,7 @@ const Users = () => {
 
 
   const getMembers = useCallback(() => {
-    fetch('https://randomuser.me/api/?page=3&results=19&seed=abc')
+    fetch('https://randomuser.me/api/?page=3&results=25&seed=abc')
       .then((response) => {
         return response.json();
       })

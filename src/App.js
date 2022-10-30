@@ -16,7 +16,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/About' element={<AboutUs />} /> */}
+          <Route path='/About' element={<AboutUs />} />
           <Route path='/Users' element={<Users />} />
         </Routes>
       </ErrorBoundary>

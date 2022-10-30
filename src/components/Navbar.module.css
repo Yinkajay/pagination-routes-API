@@ -1,12 +1,12 @@
-nav{
+nav {
     background-color: rgb(30, 76, 116);
     background-color: var(--dark-green);
     height: 60px;
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
 
-.path{
+.path {
     /* background-color: black; */
     color: var(--lavender);
     text-decoration: none;
@@ -15,6 +15,17 @@ nav{
     margin: 0 30px;
 }
 
-.path:hover{
+.path:hover {
     color: var(--purple);
+}
+
+@media screen and (max-width: 500px) {
+    nav{
+        justify-content: space-around;
+    }
+    .path {
+        margin: 5px 10px;
+        font-size: 20px;
+    }
+
 }

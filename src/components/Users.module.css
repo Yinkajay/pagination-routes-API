@@ -1,14 +1,18 @@
-.member-area{
-        display: flex;
-        flex-wrap: wrap;
+.member-area {
+    /* background-color: black; */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
-.button-area{
+
+.button-area {
     /* margin-left: 20px; */
     width: fit-content;
     margin: 20px auto;
 }
 
-.button{
+.button {
     padding: 8px 20px;
     margin: 0 1px;
     font-family: 'Inter', sans-serif;
@@ -16,20 +20,47 @@
     background-color: var(--lavender);
     border: 1px solid var(--dark-green);
 }
-.button:hover{
+
+.button:hover {
     color: var(--lavender);
     background-color: var(--dark-green);
 }
-.button:disabled{
+
+.button:disabled {
     background-color: white;
     color: var(--dark-green);
     cursor: not-allowed;
 }
 
-.button-prev{
+.button-prev {
     margin-right: 10px;
 }
 
-.button-next{
+.button-next {
     margin-left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .button-area {
+        width: fit-content;
+        margin: 20px auto;
+    }
+
+    .button {
+        padding: 5px 10px;
+        margin: 0 2px;
+        font-size: 10px;
+        font-family: 'Inter', sans-serif;
+        color: black;
+        background-color: var(--lavender);
+        border: 1px solid var(--dark-green);
+    }
+
+    .button-prev {
+        margin-right: 8px;
+    }
+
+    .button-next {
+        margin-left: 8px;
+    }
 }

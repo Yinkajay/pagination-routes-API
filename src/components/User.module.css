@@ -29,3 +29,11 @@
 .member-email {
     font-weight: 500;
 }
+
+@media screen and (max-width: 500px) {
+.member-card{
+    margin: 7px 5px;
+    width: 24rem;
+    padding: 0.6rem;
+}
+}
